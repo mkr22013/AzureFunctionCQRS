@@ -9,3 +9,14 @@ For a `TimerTrigger` to work, you provide a schedule in the form of a [cron expr
 ## Learn more
 
 <TODO> Documentation
+
+create local.settings.json file as cloning of solution will not have local settings to run azure function
+
+{
+  "IsEncrypted": false,
+  "Values": {
+    "AzureWebJobsStorage": "UseDevelopmentStorage=true",
+    "FUNCTIONS_WORKER_RUNTIME": "dotnet-isolated",
+    "NorthwindConnection": "server=localhost; database=Northwind_Dapper; UserId=sa; Password=; "
+  }
+}
