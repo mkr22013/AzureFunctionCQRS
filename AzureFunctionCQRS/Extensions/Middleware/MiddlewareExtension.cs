@@ -15,7 +15,10 @@ namespace AzureFunctionCQRS.Extensions.Middleware
         /// <returns></returns>
         public static IFunctionsWorkerApplicationBuilder AddMiddleware(this IFunctionsWorkerApplicationBuilder builder)
         {
-            return builder.UseMiddleware<ValidationMiddleware>();
+            //Middleware will be executed in the same order as it is mentioned below
+            builder.UseMiddleware<AuthMiddleware>();
+            builder.UseMiddleware<ValidationMiddleware>();
+            return builder;
         }
     }
 }

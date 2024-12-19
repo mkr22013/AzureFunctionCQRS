@@ -7,9 +7,9 @@ using Microsoft.Extensions.Logging;
 namespace AzureFunctionCQRS.Extensions.Middleware
 {
     /// <summary>
-    /// Middleware to handle validation exceptions
+    /// Middleware to handle Authentication exceptions
     /// </summary>
-    public class ValidationMiddleware() : IFunctionsWorkerMiddleware
+    public class AuthMiddleware() : IFunctionsWorkerMiddleware
     {      
         /// <summary>
         /// Invoke method
@@ -23,9 +23,9 @@ namespace AzureFunctionCQRS.Extensions.Middleware
             try
             {
                 //TODO: All authentication code goes here 
-                log.LogInformation("Validation successfully completed...");
+                log.LogInformation("Authentication successfully completed...");
 
-                //Post successful validation invoke next middleware in pipeline
+                //Post successful authentication invoke next middleware in pipeline
                 await next.Invoke(context);
             }
             catch (ValidationExceptionCustom ex)
